@@ -53,7 +53,7 @@ cp -R "./xmonad" "~/.xmonad"
 if test -d "~/.config/xmobar"; then
   mv "~/.config/xmobar" "~/.config/xmobar.old"
 else 
-  mkdir "~/.xmonad"
+  mkdir "~/.xmobar"
 fi
 
 # installing xmobar
