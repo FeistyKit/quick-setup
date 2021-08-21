@@ -30,6 +30,8 @@ else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manual
 if test -d "~/.config/nvim"; then
   mv ~/.config/nvim ~/.config/nvim.bak
   mv ~/.local/share/nvim ~/.local/share/nvim.bak
+else 
+  mkdir "~/.config/nvim"
 fi
 git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 git clone https://github.com/samrath2007/kyoto.nvim ~/.config/nvim
@@ -40,6 +42,8 @@ nvim +"lua require'pluginList'; require'packer'.sync()"
 # backing up xmonad
 if test -d "~/.xmonad"; then
   mv "~/.xmonad" "~/.xmonad.old"
+else 
+  mkdir "~/.xmonad"
 fi
 
 # installing xmonad
@@ -48,6 +52,8 @@ cp -R "./xmonad" "~/.xmonad"
 # backing up xmobar
 if test -d "~/.config/xmobar"; then
   mv "~/.config/xmobar" "~/.config/xmobar.old"
+else 
+  mkdir "~/.xmonad"
 fi
 
 # installing xmobar
@@ -62,12 +68,15 @@ fi
 cp "./zshrc" "~/.zshrc"
 
 # setting fish configs
+mkdir "~/.config/fish"
 cp -R "./fish" "~/.config/fish"
 
 # setting up fonts
+mkdir "~/.fonts"
 cp -R "./fonts" "~/.fonts"
 
 # set up scripts
+mkdir "~/.scripts"
 cp -R "./scripts" "~/.scripts"
 
 # set up alacritty
