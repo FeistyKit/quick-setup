@@ -83,9 +83,8 @@ cp -R "./scripts" "/home/$USERNAME/.scripts"
 # set up alacritty
 if test -d "/home/$USERNAME/.config/alacritty"; then
   mv "/home/$USERNAME/.config/alacritty" "/home/$USERNAME/.config/alacritty.old"
-else
-  mkdir "/home/$USERNAME/.config/alacritty"
 fi
+mkdir "/home/$USERNAME/.config/alacritty"
 cp "./alacritty.yml" "/home/$USERNAME/.config/alacritty/alacritty.yml"
 
 
