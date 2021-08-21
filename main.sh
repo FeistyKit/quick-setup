@@ -28,65 +28,65 @@ else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manual
 
 
 # installing kyoto.nvim
-if test -d "/home/$USERNAME.config/nvim"; then
-  mv /home/$USERNAME.config/nvim /home/$USERNAME.config/nvim.bak
-  mv /home/$USERNAME.local/share/nvim /home/$USERNAME.local/share/nvim.bak
+if test -d "/home/$USERNAME/.config/nvim"; then
+  mv /home/$USERNAME/.config/nvim /home/$USERNAME/.config/nvim.bak
+  mv /home/$USERNAME/.local/share/nvim /home/$USERNAME/.local/share/nvim.bak
 else 
-  mkdir "/home/$USERNAME.config/nvim"
+  mkdir "/home/$USERNAME/.config/nvim"
 fi
-git clone https://github.com/wbthomason/packer.nvim /home/$USERNAME.local/share/nvim/site/pack/packer/start/packer.nvim
-git clone https://github.com/samrath2007/kyoto.nvim /home/$USERNAME.config/nvim
-mkdir /home/$USERNAME.config/nvim/lua/kyotorc
-touch /home/$USERNAME.config/nvim/lua/kyotorc/init.lua
+git clone https://github.com/wbthomason/packer.nvim /home/$USERNAME/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone https://github.com/samrath2007/kyoto.nvim /home/$USERNAME/.config/nvim
+mkdir /home/$USERNAME/.config/nvim/lua/kyotorc
+touch /home/$USERNAME/.config/nvim/lua/kyotorc/init.lua
 nvim +"lua require'pluginList'; require'packer'.sync()"
 
 # backing up xmonad
-if test -d "/home/$USERNAME.xmonad"; then
-  mv "/home/$USERNAME.xmonad" "/home/$USERNAME.xmonad.old"
+if test -d "/home/$USERNAME/.xmonad"; then
+  mv "/home/$USERNAME/.xmonad" "/home/$USERNAME/.xmonad.old"
 else 
-  mkdir "/home/$USERNAME.xmonad"
+  mkdir "/home/$USERNAME/.xmonad"
 fi
 
 # installing xmonad
-cp -R "./xmonad" "/home/$USERNAME.xmonad"
+cp -R "./xmonad" "/home/$USERNAME/.xmonad"
 
 # backing up xmobar
-if test -d "/home/$USERNAME.config/xmobar"; then
-  mv "/home/$USERNAME.config/xmobar" "/home/$USERNAME.config/xmobar.old"
+if test -d "/home/$USERNAME/.config/xmobar"; then
+  mv "/home/$USERNAME/.config/xmobar" "/home/$USERNAME/.config/xmobar.old"
 else 
-  mkdir "/home/$USERNAME.xmobar"
+  mkdir "/home/$USERNAME/.xmobar"
 fi
 
 # installing xmobar
-cp -R "./xmobar" "/home/$USERNAME.config/xmobar"
+cp -R "./xmobar" "/home/$USERNAME/.config/xmobar"
 
 # backing up zshrc
-if test -f "/home/$USERNAME.zshrc"; then
-  mv "/home/$USERNAME.zshrc" "/home/$USERNAME.zshrc.bak"
+if test -f "/home/$USERNAME/.zshrc"; then
+  mv "/home/$USERNAME/.zshrc" "/home/$USERNAME/.zshrc.bak"
 fi
 
 # updating zshrc
-cp "./zshrc" "/home/$USERNAME.zshrc"
+cp "./zshrc" "/home/$USERNAME/.zshrc"
 
 # setting fish configs
-mkdir "/home/$USERNAME.config/fish"
-cp -R "./fish" "/home/$USERNAME.config/fish"
+mkdir "/home/$USERNAME/.config/fish"
+cp -R "./fish" "/home/$USERNAME/.config/fish"
 
 # setting up fonts
-mkdir "/home/$USERNAME.fonts"
-cp -R "./fonts" "/home/$USERNAME.fonts"
+mkdir "/home/$USERNAME/.fonts"
+cp -R "./fonts" "/home/$USERNAME/.fonts"
 
 # set up scripts
-mkdir "/home/$USERNAME.scripts"
-cp -R "./scripts" "/home/$USERNAME.scripts"
+mkdir "/home/$USERNAME/.scripts"
+cp -R "./scripts" "/home/$USERNAME/.scripts"
 
 # set up alacritty
-if test -d "/home/$USERNAME.config/alacritty"; then
-  mv "/home/$USERNAME.config/alacritty" "/home/$USERNAME.config/alacritty.old"
+if test -d "/home/$USERNAME/.config/alacritty"; then
+  mv "/home/$USERNAME/.config/alacritty" "/home/$USERNAME/.config/alacritty.old"
 else
-  mkdir "/home/$USERNAME.config/alacritty"
+  mkdir "/home/$USERNAME/.config/alacritty"
 fi
-cp "./alacritty.yml" "/home/$USERNAME.config/alacritty/alacritty.yml"
+cp "./alacritty.yml" "/home/$USERNAME/.config/alacritty/alacritty.yml"
 
 
 
