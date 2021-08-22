@@ -1,9 +1,9 @@
 #!/usr/bin/bash
-echo "Please state the user's home directory name"
+printf "Please state the user's home directory name:"
 read USERNAME
 
 # installing all needed packages
-packagesNeeded = "neovim git npm firefox alacritty lxsession picom networkmanager volumeicon conky trayer nitrogen xmonad xmobar scratchpad qalculate-gtk dmenu fish code discord"
+packagesNeeded="neovim git npm firefox alacritty lxsession picom networkmanager volumeicon conky trayer nitrogen xmonad xmobar scratchpad qalculate-gtk dmenu fish code discord"
 if test -x "$(command -v apk)" ;       then 
   echo "apk package manager detected. using that to install packages."
   sudo apk update
@@ -24,7 +24,7 @@ elif test -x "$(command -v pacman)" ; then
   echo "pacman package manager detected. using that to install packages."
   sudo pacman -Syy
   sudo pacman -S $packagesNeeded
-else echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: $packagesNeeded">&2; fi
+else echo "FAILED TO INSTALL PACKAGES: Package manager not found. You must manually install: $packagesNeeded">&2; fi
 
 
 # installing kyoto.nvim
