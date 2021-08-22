@@ -3,7 +3,7 @@ printf "Please state the user's home directory name:"
 read USERNAME
 
 # installing all needed packages
-packagesNeeded="neovim git npm firefox alacritty lxsession picom networkmanager volumeicon conky trayer nitrogen xmonad xmobar scratchpad qalculate-gtk dmenu fish code discord"
+packagesNeeded="neovim git npm firefox alacritty lxsession picom networkmanager volumeicon conky trayer nitrogen xmonad xmobar qalculate-gtk dmenu fish code discord"
 if test -x "$(command -v apk)" ;       then 
   echo "apk package manager detected. using that to install packages."
   sudo apk update
