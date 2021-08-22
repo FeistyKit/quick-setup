@@ -23,7 +23,7 @@ elif test -x "$(command -v zypper)" ;  then
 elif test -x "$(command -v pacman)" ; then 
   echo "pacman package manager detected. using that to install packages."
   sudo pacman -Syy
-  sudo pacman -S $packagesNeeded
+  sudo pacman -S $packagesNeeded xmonad-contrib
 else echo "FAILED TO INSTALL PACKAGES: Package manager not found. You must manually install: $packagesNeeded">&2; fi
 
 
