@@ -3,7 +3,7 @@ printf "Please state the user's home directory name:"
 read USERNAME
 
 # installing all needed packages
-packagesNeeded="neovim git npm firefox alacritty lxsession picom networkmanager volumeicon trayer nitrogen xmonad xmobar qalculate-gtk dmenu fish code discord"
+packagesNeeded="neovim git npm firefox alacritty lxsession picom networkmanager volumeicon trayer nitrogen xmonad xmobar qalculate-gtk dmenu fish code discord youtube-dl"
 if test -x "$(command -v apk)" ;       then 
   echo "apk package manager detected. using that to install packages."
   sudo apk update
@@ -11,7 +11,7 @@ if test -x "$(command -v apk)" ;       then
 elif test -x "$(command -v apt-get)" ; then 
   echo "apt-get package manager detected. using that to install packages."
   sudo apt-get update
-  sudo apt-get install $packagesNeeded
+  sudo apt-get install $packagesNeeded libghc-xmonad-contrib-dev
 elif test -x "$(command -v dnf)" ;     then 
   echo "dnf package manager detected. using that to install packages."
   sudo dnf check-update
@@ -41,14 +41,14 @@ touch /home/$USERNAME/.config/nvim/lua/kyotorc/init.lua
 nvim +"lua require'pluginList'; require'packer'.sync()"
 
 # backing up xmonad
-if test -d "/home/$USERNAME/.xmonad"; then
-  mv "/home/$USERNAME/.xmonad" "/home/$USERNAME/.xmonad.old"
+if test -f "/home/$USERNAME/.xmonad/xmonad.hs"; then
+  mv "/home/$USERNAME/.xmonad/xmonad.hs" "/home/$USERNAME/.xmonad.hs.bak"
 else 
   mkdir "/home/$USERNAME/.xmonad"
 fi
 
 # installing xmonad
-cp -R "./xmonad" "/home/$USERNAME/.xmonad"
+cp "./xmonad.hs" "/home/$USERNAME/.xmonad/xmonad.hs"
 
 # backing up xmobar
 if test -d "/home/$USERNAME/.config/xmobar"; then
@@ -87,9 +87,20 @@ fi
 mkdir "/home/$USERNAME/.config/alacritty"
 cp "./alacritty.yml" "/home/$USERNAME/.config/alacritty/alacritty.yml"
 
+if test -d "/home/$USERNAME/.moc"; then
+  mv /home/$USERNAME/.moc /home/$USERNAME/.moc.old
+fi
+cp -R ./moc /home/$USERNAME/.moc
 
-
-
+# setting up music stuff
+mkdir /home/$USERNAME/Music/Lyrics
+cd /home/$USERNAME/Music/Lyrics
+youtube-dl "https://music.youtube.com/playlist?list=PLPLkPAtcf-sSSYYWRgTZNAb2-edDqkdJG"
+cd /home/$USERNAME/Music
+mkdir Background
+cd Background
+youtube-dl https://youtu.be/jvM9AfAzoSo
+youtube-dl "https://music.youtube.com/playlist?list=PLPLkPAtcf-sRq32fXVlI8eAmhwJMkE153"
 
 
 
