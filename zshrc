@@ -98,7 +98,7 @@ ZSH_THEME="robbyrussell"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias c="clear"
 export EDITOR="/usr/bin/nvim"
-export PATH=$PATH:/home/feisty/.scripts
+export PATH=$PATH:/home/feisty/.scripts:/home/feisty/.local/bin
 echo ""
 neofetch
 eval fish
